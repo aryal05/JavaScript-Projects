@@ -50,3 +50,13 @@ body{
 .search button img{
     width: 16px;
 }
+
+.weather h1{
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.weather h2{
+    font-size: 50px;
+    font-weight: 400;
+}
