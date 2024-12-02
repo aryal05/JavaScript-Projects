@@ -68,3 +68,14 @@ body{
     align-items: center;
     margin-top: 40px;
 }
+
+.col{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    
+}
+.col img{
+    width: 40px;
+    margin-right: 10px;
+}
