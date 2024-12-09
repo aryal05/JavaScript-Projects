@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="style.css"> -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Weather-App</title>
 </head>
 <body class="h-screen w-screen bg-cover bg-center" style="background-image: url('images/bg.jpg');"></body>
   <div class="flex">
-    <div class="border-4 border-gray-500 rounded-lg w-[330px] h-screen">
-      <div class="ml-8">
-        <input type="text" placeholder="Enter a City" class="">
+    <div class="border-2 border-gray-500 rounded-lg w-[340px] h-screen">
+      <div class="p-4 mt-6 ml-2">
+        <input type="text" placeholder="Enter a City" class="w-[266px] h-[45px] bg-transparent border-b-2">
+        <span class="text-2xl absolute mt-2 text-green-200 left-[16rem]"><i class='bx bx-search'></i></span>
       </div>
     </div>
 
 
-    <div class="ml-8">
+    <div class="ml-8 mt-6">
         <span class="text-3xl">Weather</span>
         <span class="block text-2xl">Application</span>
     </div>
