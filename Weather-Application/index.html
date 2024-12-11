@@ -10,22 +10,43 @@
 </head>
 <body class="h-screen w-screen bg-cover bg-center" style="background-image: url('images/bg.jpg');"></body>
   <div class="flex">
-    <div class="border border-white rounded-xl w-[340px] h-screen">
+    <div class="border border-white rounded-xl text-white w-[340px] h-screen">
       <div class="p-4 mt-6 ml-2">
         <input type="text" placeholder="Enter a City" class="w-[266px] h-[45px] bg-transparent border-b-2">
         <span class="text-2xl absolute mt-2 text-green-200 left-[16rem]"><i class='bx bx-search'></i></span>
       </div>
-      <div class="ml-6 text-gray-700">
-       <span class="font-bold text-5xl">20&degc</span>
-       <p class="text-3xl">Temperature</p>
+
+      <div class="ml-6 text-slate-800 mt-14">
+       <span class="text-5xl">20&degc</span>
+       <p class="text-3xl inline ml-4">Temperature</p>
       </div>
+      <div class="ml-6 text-slate-800 mt-20">
+        <span class="text-3xl">9.8%</span>
+        <p class="text-xl inline ml-12">Wind: WSW 6 mph</p>
+       </div>
+        
+       <!-- City Info -->
+       <div class="mt-[9rem] ml-6">
+        <span class="text-3xl text-slate-800">Gorkha City:</span>
+        <p class="mt-4 w-[300px] border-2 p-2 border-slate-900">In Gorkha, the warmest time is between June and September with maximums sitting as high as 32℃ and minimums rarely dropping below 21℃. Cooler months see maximums of between 20℃ and 26℃ and minimums of between 5℃ and 14℃.
+           The rain falls mostly between May and September.</p>
+       </div>
     </div>
+    
 
 
     <div class="ml-8 mt-6">
-        <span class="text-3xl">Weather</span>
-        <span class="block text-2xl">Application</span>
+        <span class="text-3xl font-bold text-slate-800">Weather</span>
+        <span class="block text-2xl font-bold text-slate-800">Application</span>
+
+        <div class="mt-[10rem]">
+          <span class="text-2xl text-slate-800">Weather Forcast</span>
+          <span>Storm</span>
+          <span></span>
+        </div>
     </div>
+
+    
   </div>
 </body>
 </html>
