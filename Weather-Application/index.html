@@ -10,7 +10,7 @@
 </head>
 <body class="h-screen w-screen bg-cover bg-center" style="background-image: url('images/bg.jpg');"></body>
   <div class="flex">
-    <div class="border border-white rounded-xl text-black w-[340px] h-screen">
+    <div class="border border-white rounded-xl text-black w-[350px] h-screen">
       <div class="p-4 mt-6 ml-2">
         <input type="text" placeholder="Enter a City" class="w-[266px] h-[45px] bg-transparent border-b-2">
         <span class="text-2xl absolute mt-2 text-green-200 left-[16rem]"><i class='bx bx-search'></i></span>
@@ -22,7 +22,7 @@
       </div>
       <div class="ml-6 text-slate-800 mt-20">
         <span class="text-3xl" id="wind">9.8%</span>
-        <p class="text-xl inline ml-12">Wind: WSW 6 mph</p>
+        <p class="text-2xl inline ml-4">Wind</p>
        </div>
         
        <!-- City Info -->
@@ -39,21 +39,22 @@
         <span class="text-3xl font-bold text-slate-800">Weather</span>
         <span class="block text-2xl font-bold text-slate-800">Application</span>
          <div class="ml-12">
-        <div class="mt-[8rem]">
+        <div class="mt-[8rem] ml-[6rem]">
           <span class="text-2xl text-slate-800">Weather Forcast</span>
           <span class="block text-5xl text-white" id="tempInfo">Storm</span>
-          <span class="block text-5xl text-white"  id="tempInfo">with Heavy Rain</span>
+          <!-- <span class="block text-5xl text-white"  id="tempInfo">with Heavy Rain</span> -->
           <img src="images/rain.png" alt="">
         </div>
         <div class="text-slate-800 text-3xl flex">
           <!-- <i class='bx bxs-cloud-rain'></i > -->
-          <span class="text-xl text-white ml-3 mt-2" id="city">Gorkha,Friday,december 11,2024,9:02 PM</span>
+          <span class="text-xl text-white ml-3 mt-2" id="cityName">Gorkha</span>
           
         </div>
         
     </div>
   </div>
   </div>
+  <script src="weather.js"></script>
 </body>
-<script src="weather.js"></script>
+
 </html>
