@@ -16,6 +16,7 @@ async function weather(city) {
         // Update weather details
         document.getElementById("city").innerHTML = `${data.name} City:`;
         document.getElementById("cityName").innerHTML = data.name;
+        document.getElementById("cityForcast").innerHTML = `${data.name} :`;
         document.getElementById("temp").innerHTML = Math.round(data.main.temp) + "&deg;c";
         document.getElementById("wind").innerHTML = data.wind.speed + " m/s";
         weatherDescription.innerHTML = data.weather[0].description;
