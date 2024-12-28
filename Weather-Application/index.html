@@ -12,47 +12,52 @@
   <div class="flex">
     <div class="border border-white rounded-xl text-black w-[350px] h-screen">
       <div class="p-4 mt-6 ml-2">
-        <input id="search-box" type="text" placeholder="Enter a City" class="w-[266px] h-[45px] bg-transparent border-b-2">
-        <span  id="btn" class="text-2xl absolute mt-2 text-green-200 left-[16rem]"><i class='bx bx-search'></i></span>
+        <input id="search-box" type="text" placeholder="Enter a City" class="w-[266px] h-[45px] bg-transparent border-b-2 text-white placeholder-white">
+        <span  id="btn" class="text-2xl absolute mt-2 text-green-200 left-[16rem] cursor-pointer hover:bg-gray"><i class='bx bx-search'></i></span>
       </div>
  
-      <div class="ml-6 text-slate-800 mt-14">
+      <div class="ml-6 text-white mt-14">
        <span class="text-5xl" id="temp">20&degc</span>
        <p class="text-3xl inline ml-4">Temperature</p>
       </div>
-      <div class="ml-6 text-slate-800 mt-20">
+      <div class="ml-6 text-white mt-20">
         <span class="text-3xl" id="wind">9.8%</span>
         <p class="text-2xl inline ml-4">Wind</p>
+        <img class = "mt-6" src = "images/wind.png">
+       </div>
+       <div class="ml-6 text-white mt-20">
+        <span class="text-3xl" id="humidity">9.8%</span>
+        <p class="text-2xl inline ml-4">Humidity</p>
+        <img class = "mt-6" src = "images/humidity.png">
        </div>
         
        <!-- City Info -->
-       <div class="mt-[9rem] ml-6">
-        <span class="text-3xl text-slate-800" id="city">Gorkha City:</span>
-        <p class="mt-4 w-[300px] border-2 p-2 border-slate-900">In Gorkha, the warmest time is between June and September with maximums sitting as high as 32℃ and minimums rarely dropping below 21℃. Cooler months see maximums of between 20℃ and 26℃ and minimums of between 5℃ and 14℃.
-           The rain falls mostly between May and September.</p>
-       </div>
+      
     </div>
     
 
 
     <div class="ml-8 mt-6">
+      <div>
         <span class="text-3xl font-bold text-slate-800">Weather</span>
         <span class="block text-2xl font-bold text-slate-800">Application</span>
+      </div>
          <div class="ml-12">
         <div class="mt-[8rem] ml-[6rem]">
           <h2 class = "text-4xl text-white font-bold " id="cityForcast">Gokhara:</h2>
           <span class="text-2xl text-slate-800">Weather Forecast</span>
           <span class="block text-5xl text-white" id="weather-description">Storm</span>
           <!-- <span class="block text-5xl text-white"  id="tempInfo">with Heavy Rain</span> -->
-          <img src="images/clouds.png" class="weather-icon bg-transparent" alt="">
+          <div class="flex justify-between">
+          <img src="images/clouds.png" class="weather-icon bg-transparent h-[20rem]" alt="">
+          <div class="ml-[13rem] mb-10">
+            <span class="text-3xl text-white" id="city">Gorkha City:</span>
+            <p class="mt-4 w-[300px] border-2 p-2 text-slate-800 border-slate-900 text-xl">In <strong id="bold">Gorkha</strong>, the warmest time is between June and September with maximums sitting as high as 32℃ and minimums rarely dropping below 21℃. Cooler months see maximums of between 20℃ and 26℃ and minimums of between 5℃ and 14℃.
+               The rain falls mostly between May and September.</p>
+              </div>
+           </div>
         </div>
-        <div class="text-slate-800 text-3xl flex">
-          <!-- <i class='bx bxs-cloud-rain'></i > -->
-          <span class="text-xl text-white ml-3 mt-2" id="cityName">Gorkha</span>
-          
         </div>
-        
-    </div>
   </div>
   </div>
   <script src="weather.js"></script>

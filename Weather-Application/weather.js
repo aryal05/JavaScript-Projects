@@ -9,38 +9,61 @@ async function weather(city) {
     try {
         const response = await fetch(url + city + `&appid=${apiKey}`);
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`City not found. HTTP status: ${response.status}`);
         }
+
         const data = await response.json();
+
+        // Debugging: Log the response data
+        console.log(data);
 
         // Update weather details
         document.getElementById("city").innerHTML = `${data.name} City:`;
-        document.getElementById("cityName").innerHTML = data.name;
+        // document.getElementById("bold").innerHTML = data.name;
         document.getElementById("cityForcast").innerHTML = `${data.name} :`;
+        document.getElementById("bold").innerHTML = data.name;
         document.getElementById("temp").innerHTML = Math.round(data.main.temp) + "&deg;c";
         document.getElementById("wind").innerHTML = data.wind.speed + " m/s";
+        document.getElementById("humidity").innerHTML = data.main.humidity + "%";
         weatherDescription.innerHTML = data.weather[0].description;
 
-        // Update weather icon based on condition
+        // Update weather icon
         if (data.weather[0].main === "Clouds") {
             weatherIcon.src = "images/clouds.png";
+            document.body.style.backgroundImage = "url('images/cloudsbg.jpg')";
         } else if (data.weather[0].main === "Rain") {
-            weatherIcon.src = "images/rain.png";
+            weatherIcon.src = "images/heavy-rain.png";
+            document.body.style.backgroundImage = "url('images/rainbg.jpg')";
         } else if (data.weather[0].main === "Mist") {
             weatherIcon.src = "images/mist.png";
+            // document.body.style.backgroundImage = "url('images/mistbg.jpg')";
         } else if (data.weather[0].main === "Drizzle") {
             weatherIcon.src = "images/drizzle.png";
+            // document.body.style.backgroundImage = "url('images/drizzlebg.jpg')";
+        } else if (data.weather[0].main === "Haze") {
+            weatherIcon.src = "images/fog.png";
+            document.body.style.backgroundImage = "url('images/fogbg.jpg')";
+        } else if (data.weather[0].main === "Clear") {
+            weatherIcon.src = "images/clear-sky.png";
+            document.body.style.backgroundImage = "url('images/clearbg.jpg')";
+        } else if (data.weather[0].main === "Snow") {
+            weatherIcon.src = "images/snow.png";
+            document.body.style.backgroundImage = "url('images/snowbg.jpg')";
+        } else {
+            weatherIcon.src = "images/default.png"; // Fallback
+            document.body.style.backgroundImage = "url('images/defaultbg.jpg')";
         }
-         else if (data.weather[0].main === "Haze") {
-        weatherIcon.src = "images/haze.png";
-    }
         
-         else {
-            weatherIcon.src = "images/default.png"; // Fallback for unhandled cases
-        }
     } catch (error) {
-        alert("City not found or another error occurred.");
-        console.error(error);
+        // Log the error to understand why it occurs
+        console.error("Error fetching weather data:", error);
+
+        // Only show an alert for specific cases
+        if (error.message.includes("City not found")) {
+            alert("City not found. Please check the city name.");
+        } else {
+            alert("An unexpected error occurred. Please try again.");
+        }
     }
 }
 
