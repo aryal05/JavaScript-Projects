@@ -36,7 +36,7 @@ async function weather(city) {
             document.body.style.backgroundImage = "url('images/rainbg.jpg')";
         } else if (data.weather[0].main === "Mist") {
             weatherIcon.src = "images/mist.png";
-            // document.body.style.backgroundImage = "url('images/mistbg.jpg')";
+            document.body.style.backgroundImage = "url('images/mistbg.jpg')";
         } else if (data.weather[0].main === "Drizzle") {
             weatherIcon.src = "images/drizzle.png";
             // document.body.style.backgroundImage = "url('images/drizzlebg.jpg')";
