@@ -1,9 +1,11 @@
 const apiKey = '30985cd12f34acf0f480fe9bb6ab0c7c';
-const url = 'https://api.openweathermap.org/data/2.5/weather?q=germany';
+const url = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q=';
+const searchBox = document.getElementById('search-box');
+const searchButton = document.getElementById('btn');
 
-async function weather() {
+async function weather(city) {
     try {
-        const response = await fetch(url + `&appid=${apiKey}`);
+        const response = await fetch(url + city + `&appid=${apiKey}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -18,4 +20,14 @@ async function weather() {
         console.error(error);
     }
 }
-weather()
+searchButton.addEventListener('click', () => {
+    const city = searchBox.value.trim();
+    if (city) {
+        weather(city);
+        searchBox.value = ''
+    } else {
+        alert("Please enter a city name.");
+    }
+
+});
+weather('Gorkha')
