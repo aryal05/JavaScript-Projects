@@ -24,7 +24,9 @@ async function weather(city) {
         document.getElementById("bold").innerHTML = data.name;
         document.getElementById("temp").innerHTML = Math.round(data.main.temp) + "&deg;c";
         document.getElementById("wind").innerHTML = data.wind.speed + " m/s";
+        document.getElementById("direction").innerHTML = data.wind.deg + " degrees";
         document.getElementById("humidity").innerHTML = data.main.humidity + "%";
+        document.getElementById("pressure").innerHTML = data.main.pressure + " hPa";
         weatherDescription.innerHTML = data.weather[0].description;
 
         // Update weather icon
