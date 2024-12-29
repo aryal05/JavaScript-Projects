@@ -2,8 +2,28 @@ const apiKey = '30985cd12f34acf0f480fe9bb6ab0c7c';
 const url = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q=';
 const searchBox = document.getElementById('search-box');
 const searchButton = document.getElementById('btn');
-const weatherIcon = document.getElementsByClassName('weather-icon')[0]; // Access the first element
-const weatherDescription = document.getElementById('weather-description'); // Fixed selector
+const weatherIcon = document.getElementsByClassName('weather-icon')[0];
+const weatherDescription = document.getElementById('weather-description');
+
+
+function updateDateTime() {
+    const now = new Date();
+    const options = {
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',  
+        hour12: true
+    };
+    const formattedDate = now.toLocaleDateString('en-US', options);
+    document.getElementById('date').innerHTML = formattedDate;
+}
+
+updateDateTime();
+
+
+setInterval(updateDateTime, 1000);
+
 
 async function weather(city) {
     try {
@@ -13,11 +33,9 @@ async function weather(city) {
         }
 
         const data = await response.json();
+        // console.log(data);
 
-        // Debugging: Log the response data
-        console.log(data);
-
-        // Update weather details
+        
         document.getElementById("city").innerHTML = `${data.name} City:`;
         // document.getElementById("bold").innerHTML = data.name;
         document.getElementById("cityForcast").innerHTML = `${data.name} :`;
@@ -57,10 +75,7 @@ async function weather(city) {
         }
         
     } catch (error) {
-        // Log the error to understand why it occurs
         console.error("Error fetching weather data:", error);
-
-        // Only show an alert for specific cases
         if (error.message.includes("City not found")) {
             alert("City not found. Please check the city name.");
         } else {
@@ -69,16 +84,25 @@ async function weather(city) {
     }
 }
 
-// Event listener for search button
 searchButton.addEventListener('click', () => {
-    const city = searchBox.value.trim();
-    if (city) {
-        weather(city);
-        searchBox.value = '';
-    } else {
-        alert("Please enter a city name.");
+  handleSearch()
+});
+searchBox.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        handleSearch();
     }
 });
 
-// Default weather display
+
+const handleSearch = () => {
+const city = searchBox.value.trim();
+if (city) {
+    weather(city);
+    searchBox.value = '';
+} else {
+    alert("Please enter a city name.");
+}
+}
+
+// Default weather 
 weather('Gorkha');
