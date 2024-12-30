@@ -6,11 +6,15 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <title>Weather-App</title>
 </head>
 <body class="h-screen w-screen bg-cover bg-center" style="background-image: url('images/bg.jpg');"></body>
+
+<!-- left section of the code -->
   <div class="flex">
-    <div class=" border border-white rounded-xl  w-[350px] h-screen">
+    <div class=" border border-white rounded-xl  w-[355px] h-screen">
     <div class = "mt-8">
     <div class="text-black">
       <div class="p-4 mt-6 ml-2">
@@ -22,28 +26,32 @@
        <span class="text-5xl" id="temp">20&degc</span>
        <p class="text-3xl inline ml-4">Temperature</p>
       </div>
-      <div class="ml-6 text-white mt-20">
+      <div class="ml-6 text-white mt-20 flex items-center">
         <span class="text-3xl" id="wind">9.8%</span>
         <p class="text-2xl inline ml-4">Wind</p>
-        <img class = "inline ml-6 h-[45px] w-[45px]" src = "images/wind.png">
-        <p class="text-3xl ml-12" id="direction"></p>
+        <span class="ml-7 font-bold text-5xl">
+          <i class="fa-solid fa-wind" id=""></i>
+        </span>
        </div>
-       <div class="ml-6 text-white mt-20">
+       <p class="text-3xl text-white ml-12" id="direction"></p>
+       <div class="ml-6 text-white mt-20 flex items-center">
         <span class="text-3xl" id="humidity">9.8%</span>
-        <p class="text-2xl inline ml-4">Humidity</p>
-        <img class = "inline ml-6 h-[45px] w-[45px]" src = "images/humidity.png">                  
-       </div>
-       <div class="ml-6 text-white mt-20">
+        <p class="text-2xl ml-4">Humidity</p>
+        <span class="ml-7 font-bold text-5xl">
+          <i class="fa-solid fa-droplet" id=""></i>
+        </span>
+      </div>
+      
+       <div class="ml-6 text-white mt-20 flex items-center">
         <span class="text-3xl" id="pressure"></span>
-        <p class="text-2xl inline ml-4"></p>
-        <p class="inline ml-14 font-bold text-5xl"><i class='bx bx-tachometer' id=""></i></p>
-        <!-- <img class = "inline ml-6 h-[45px] w-[45px] text-white" src = "images/pressuremeter.png"> -->
+        <p class="text-2xl ml-4"></p>
+        <span class="ml-14 font-bold text-5xl"><i class='bx bx-tachometer' id=""></i></span>
        </div>
       </div>
       </div>
     </div>
     
-
+<!-- Right section of the code -->
 
     <div class="ml-8 mt-6">
       <div>
@@ -57,7 +65,7 @@
           <span class="block text-5xl text-white" id="weather-description">Storm</span>
           <!-- <span class="block text-5xl text-white"  id="tempInfo">with Heavy Rain</span> -->
           <div class="flex justify-between">
-          <img src="images/clouds.png" class="weather-icon bg-transparent h-[20rem]" alt="">
+          <img src="https://openweathermap.org/img/wn/04d@2x.png"  class="weather-icon w-[400px] h-[400px] bg-transparent" alt="">
           <div class="ml-[13rem] mb-10">
             
             <span class="text-3xl text-white" id="city">Gorkha City:</span>
