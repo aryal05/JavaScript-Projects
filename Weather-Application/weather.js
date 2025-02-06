@@ -1,11 +1,13 @@
 const searchBox = document.getElementById('search-box');
 const searchButton = document.getElementById('btn');
 const weatherDescription = document.getElementById('weather-description');
-const apiUrl = 'http://localhost/PHP/weather.php'; 
 
+const apiUrl = 'aryalrajat.kesug.com/weather.php';
+
+// Function to fetch weather
 async function fetchWeather(city) {
     try {
-        const response = await fetch(`${apiUrl}?city=${city}`);
+       const response = await fetch(`http://aryalrajat.kesug.com/weather.php?city=${city}`);
         const data = await response.json();
 
         if (data.error) {
@@ -27,6 +29,10 @@ async function fetchWeather(city) {
         document.getElementById("pressure").innerHTML = data.pressure + " hPa";
         weatherDescription.innerHTML = data.description;
 
+        // Save city to localStorage
+        localStorage.setItem('lastSearchedCity', city);
+        
+
         // Update background image based on weather
         const mainWeather = data.description.toLowerCase();
 
@@ -47,17 +53,15 @@ async function fetchWeather(city) {
         } else {
             document.body.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9Y_wFgqTOto5tLeyZFnak8FwpCiTs0sLZqg&s')";
         }
-        
     } catch (error) {
         console.error("Error fetching weather data:", error);
         alert("An unexpected error occurred. Please try again.");
     }
 }
-
 searchButton.addEventListener('click', () => {
     const city = searchBox.value.trim();
     if (city) {
-        fetchWeather(city);
+         fetchWeather(city);
         searchBox.value = '';
     } else {
         alert("Please enter a city name.");
@@ -68,7 +72,7 @@ searchBox.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
         const city = searchBox.value.trim();
         if (city) {
-            fetchWeather(city);
+              fetchWeather(city);
             searchBox.value = '';
         } else {
             alert("Please enter a city name.");
@@ -76,5 +80,11 @@ searchBox.addEventListener('keypress', (event) => {
     }
 });
 
-//default city (Gorkha)
-fetchWeather('Gorkha');
+
+const lastSearchedCity = localStorage.getItem('lastSearchedCity') || 'Gorkha';
+
+// Fetch weather for last searched city or default
+fetchWeather(lastSearchedCity).then(() => {
+    searchBox.value = '';  // Clear the search box after fetching
+});
+
